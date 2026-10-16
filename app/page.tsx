@@ -10,7 +10,63 @@ const projects:Project[]=[
 {id:'mimosa',title:'Gentle Glow — Mimosa',subtitle:'A softer expression of modern femininity.',description:'A commercial fashion direction shaped by runway forecasting, brand analysis, soft tailoring and visual merchandising.',story:'Gentle Glow imagines an effortless expression of femininity for Mimosa. The concept blends quiet confidence with fluid silhouettes, airy layers, subtle floral details and refined colour combinations.',detail:'The project combines research into Mimosa’s retail and digital identity, competitor positioning, runway trends and customer experience. It develops collection directions and proposes a floral, warmly illuminated window-display concept for the Bagatalle Road store. This is independent academic brand research, not a commissioned brand collaboration.',skills:['Trend forecasting','Brand analysis','Colour palettes','Visual merchandising','Commercial design'],gallery:[1,9,11,12,13,14,15,16,17,18,19].map(n=>`mimosa-${n}.webp`),cover:'mimosa-1.webp',accent:'#bc8490'},
 {id:'thesira',title:'Thesira',subtitle:'Not every queen leads with a sword. Some lead with wisdom.',description:'A costume and character research exploration drawing on ancient Egyptian symbolism and the literary world of Narnia.',story:'Thesira is a fictional character concept inspired by Susan Pevensie and the ancient Egyptian deity Thoth. Her identity draws on knowledge, nobility, calm strength and symbolic storytelling.',detail:'Research explores the evolution of Susan Pevensie across books and film, the meaning of Egyptian iconography, and how costume can express a character’s identity. Gold, warm neutrals and symbolic accessories guide the visual language. Referenced third-party imagery is included as academic research, not claimed as original design work.',skills:['Costume research','Character development','Mythology & symbols','Colour storytelling','Visual research'],gallery:[1,2,3,4,11,17,25,35].map(n=>`thesira-${n}.webp`),cover:'thesira-1.webp',accent:'#ad8750'}
 ];
-const skills=[{icon:Ruler,name:'Fashion CAD & Technical Drawing',text:'Exploring technical flats, garment details and digital drawing for clear design communication.',color:'#b97d4c'},{icon:BookOpen,name:'Tech Pack Development',text:'Developing garment specifications, measurement sheets, material information and construction documentation.',color:'#a47a9e'},{icon:Layers3,name:'Fabric & Material Selection',text:'Considering texture, drape, transparency and material suitability as part of the design process.',color:'#79958b'},{icon:Palette,name:'Prints, Colours & Surface Design',text:'Exploring textile prints, palettes, embellishments and details that give garments individuality.',color:'#c07b87'},{icon:Scissors,name:'Garment Development',text:'Building practical understanding of patterns, construction and garment finishing.',color:'#a58d5d'},{icon:PenTool,name:'Concept & Fashion Illustration',text:'Translating creative inspiration into visual narratives, sketches and expressive presentations.',color:'#8b91b8'},{icon:Shirt,name:'Fashion Trend Forecasting',text:'Studying silhouettes, runway directions, customer preferences and emerging fashion trends.',color:'#bf8b66'},{icon:Store,name:'Branding & Visual Merchandising',text:'Connecting collection ideas with customer experience, brand identity and retail presentation.',color:'#789da4'}];
+
+const skills = [
+  {
+    icon: Ruler,
+    name: 'Fashion CAD & Technical Drawing',
+    text: 'Exploring technical flats, garment details and digital drawing for clear design communication.',
+    color: '#b97d4c'
+  },
+  {
+    icon: Palette,
+    name: 'Digital Design & Illustration',
+    text: 'Exploring Adobe Illustrator, Adobe Photoshop, CLO 3D and tablet-based digital drawing to create fashion illustrations and garment designs.',
+    color: '#a47a9e'
+  },
+  {
+    icon: BookOpen,
+    name: 'Tech Pack Development',
+    text: 'Developing garment specifications, measurement sheets, material information and construction documentation.',
+    color: '#a47a9e'
+  },
+  {
+    icon: Layers3,
+    name: 'Fabric & Material Selection',
+    text: 'Considering texture, drape, transparency and material suitability as part of the design process.',
+    color: '#79958b'
+  },
+  {
+    icon: Palette,
+    name: 'Prints, Colours & Surface Design',
+    text: 'Exploring textile prints, palettes, embellishments and details that give garments individuality.',
+    color: '#c07b87'
+  },
+  {
+    icon: Scissors,
+    name: 'Garment Development',
+    text: 'Building practical understanding of patterns, construction and garment finishing.',
+    color: '#a58d5d'
+  },
+  {
+    icon: PenTool,
+    name: 'Concept & Fashion Illustration',
+    text: 'Translating creative inspiration into visual narratives, sketches and expressive presentations.',
+    color: '#8b91b8'
+  },
+  {
+    icon: Shirt,
+    name: 'Fashion Trend Forecasting',
+    text: 'Studying silhouettes, runway directions, customer preferences and emerging fashion trends.',
+    color: '#bf8b66'
+  },
+  {
+    icon: Store,
+    name: 'Branding & Visual Merchandising',
+    text: 'Connecting collection ideas with customer experience, brand identity and retail presentation.',
+    color: '#789da4'
+  }
+];
 function ContactForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -67,11 +123,25 @@ export default function Home(){const [menu,setMenu]=useState(false),[selected,se
 <section id="about" className="about section-wrap"><div className="about-photo"><Image src="/images/about-me.png" alt="Portrait of Gayashri Wanni Arachchi" fill sizes="(max-width: 800px) 100vw, 45vw"/></div><div className="about-copy"><h2>A creative mind.<br/>A designer's eye.<br/><em>A story in every stitch.</em></h2><p>Hello, I'm <strong>Gayashri</strong>, a BA (Hons) Fashion Design undergraduate at AMDT School of Creativity, Colombo.</p><p>For me, fashion begins with curiosity. A delicate flower, the warmth of sunlight, the strength of a fictional character or the movement of fabric can become the beginning of a new design story.</p><p>My creative approach connects artistic exploration with the practical thinking behind garments: from fashion illustration and CAD drawing to technical documentation, fabric selection and collection development.</p><p>I hope to create fashion that tells a story, serves a purpose and leaves an impression.</p><a href="#contact" className="btn outline">Let's work together <ArrowUpRight size={18}/></a></div></section>
 <section id="work" className="work section-wrap"><div className="section-head"><div><h2>Selected <em>works.</em></h2><p>Every collection begins with a feeling. Explore stories told through silhouette, colour, texture and imagination.</p></div><span className="count">01 — 04</span></div><div className="project-grid">{projects.map((p,i)=><button key={p.id} className={'project-card project-'+i} onClick={()=>{setSelected(p);setLightbox(null)}}><div className="project-cover"><Image src={`/images/projects/${p.cover}`} alt={`${p.title} project artwork`} fill sizes="(max-width: 700px) 100vw, 50vw"/><span className="project-arrow"><ArrowUpRight size={22}/></span></div><div className="project-meta"><div><h3>{p.title}</h3><p>{p.subtitle}</p></div><span>0{i+1}</span></div></button>)}</div></section>
 <section className="statement"><p>Fashion should be <em>felt,</em><br/>not just seen.</p><span>The way fabric moves. The way colour changes a mood. The way a silhouette expresses confidence without a single word.</span></section>
-<section id="skills" className="skills section-wrap"><div className="section-head"><div><h2>Artistry meets <em>precision.</em></h2><p>Thoughtful fashion combines expressive ideas with technical understanding and a clear design process.</p></div></div><div className="skills-grid">{skills.map(s=><article className="skill" key={s.name}><span className="skill-icon" style={{background:s.color+'20',color:s.color}}><s.icon size={27} strokeWidth={1.8}/></span><h3>{s.name}</h3><p>{s.text}</p></article>)}</div></section>
+<section id="skills" className="skills section-wrap"><div className="section-head"><div><h2>Artistry meets <em>precision.</em></h2><p>Thoughtful fashion combines expressive ideas with technical understanding and a clear design process.</p></div></div>
+<div className="skills-grid">{skills.map(s=><article className="skill" key={s.name}><span className="skill-icon" style={{background:s.color+'20',color:s.color}}><s.icon size={27} strokeWidth={1.8}/></span><h3>{s.name}</h3><p>{s.text}</p></article>)}</div></section>
 <section className="process section-wrap"><h2>From thought <em>to thread.</em></h2><div className="process-list">{[['01','Discover','Find inspiration in nature, culture, art and everyday experiences.'],['02','Research','Explore trends, materials, colours and the audience behind the design.'],['03','Visualise','Build moodboards, illustrations, silhouettes and technical drawings.'],['04','Develop','Consider fabrics, prints, construction details and technical specifications.'],['05','Present','Bring the collection together through styling, lookbooks and storytelling.']].map(([n,t,d])=><div className="process-item" key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p><ArrowUpRight size={20}/></div>)}</div></section>
-<section className="education section-wrap"><div><h2>Learning the craft.<br/><em>Finding my voice.</em></h2><p>My academic journey is an opportunity to explore different areas of fashion, from conceptual collections and costume research to commercial design, garment development and visual communication.</p></div><div className="education-card"><BookOpen size={31} color="#ad7e61"/><h3>BA (Hons) Fashion Design</h3><p>AMDT School of Creativity<br/>Colombo, Sri Lanka</p><span>Undergraduate studies · Ongoing</span></div></section>
+<section className="education section-wrap"><div><h2>Learning the craft.<br/><em>Finding my voice.</em></h2><p>My academic journey is an opportunity to explore different areas of fashion, from conceptual collections and costume research to commercial design, garment development and visual communication.</p></div><div className="education-card">
+  <BookOpen size={31} color="#ad7e61"/>
+  <h3>BA (Hons) Fashion Design</h3>
+  <p>AMDT School of Creativity<br/>Colombo, Sri Lanka</p>
+  <span>Undergraduate studies · Ongoing</span>
+</div>
+
+<div className="education-card">
+  <BookOpen size={31} color="#ad7e61"/>
+  <h3>School Education</h3>
+  <p>Girls' High School<br/>Kandy, Sri Lanka</p>
+  <span>2016 – 2024</span>
+  <p>Participated in inter-school fashion design competitions and received merit awards.</p>
+</div></section>
 <section id="contact" className="contact"><div className="section-wrap contact-grid"><div className="contact-left"><h2>Let's create something<br/><em>worth remembering.</em></h2><p>Great ideas often begin with a simple conversation. I'm open to internships, creative collaborations, fashion design opportunities and meaningful new projects.</p><div className="contact-links"><a href="mailto:gayashrinethu@gmail.com"><span className="contact-icon"><Mail size={21}/></span><span>gayashrinethu@gmail.com</span><ArrowUpRight size={18}/></a><a href="https://www.instagram.com/gayashri_wanniarachchi/" target="_blank" rel="noreferrer"><span className="contact-icon"><Instagram size={21}/></span><span>@GAYASHRI_WANNIARACHCHI</span><ArrowUpRight size={18}/></a><a href="https://wa.me/94778733692" target="_blank" rel="noreferrer"><span className="contact-icon"><MessageCircle size={21}/></span><span>+94 77 873 3692</span><ArrowUpRight size={18}/></a><div className="location"><span className="contact-icon"><MapPin size={21}/></span><span>Kirulapone, Colombo 05, Sri Lanka</span></div></div></div><div className="contact-panel"><h3>Send a message</h3><p>Have a project or opportunity in mind? I'd love to hear about it.</p><ContactForm/></div></div></section></main>
-<footer className="footer"><div className="section-wrap footer-inner"><div><strong>GAYASHRI</strong><span>Beyond the sketch. Into the story.</span></div><p>© {new Date().getFullYear()} Gayashri Wanni Arachchi. All rights reserved. | 2026</p><a href="#home">Back to top ↑</a></div></footer>
+<footer className="footer"><div className="section-wrap footer-inner"><div><strong>GAYASHRI</strong><span>Beyond the sketch. Into the story.</span></div><p>© {new Date().getFullYear()} Gayashri Wanni Arachchi. All rights reserved.</p><a href="#home">Back to top ↑</a></div></footer>
 {selected&&<div className="modal-backdrop" onMouseDown={e=>{if(e.target===e.currentTarget){setSelected(null);setLightbox(null)}}}><article className="project-modal" role="dialog" aria-modal="true" aria-label={selected.title}><button className="modal-close" onClick={()=>{setSelected(null);setLightbox(null)}} aria-label="Close project"><X/></button><div className="modal-banner"><Image src={`/images/projects/${selected.cover}`} alt={selected.title} fill sizes="100vw"/><div className="modal-banner-shade"/><h2>{selected.title}</h2></div><div className="modal-body"><p className="modal-subtitle">{selected.subtitle}</p><div className="modal-columns"><div><h3>The inspiration</h3><p>{selected.story}</p></div><div><h3>Design Exploration</h3><p>{selected.detail}</p></div></div><div className="tags">{selected.skills.map(s=><span key={s}>{s}</span>)}</div><h3 className="gallery-title">Explore the project</h3><div className="gallery">{selected.gallery.map((f,i)=><button key={f} onClick={()=>setLightbox(i)} aria-label={`View ${selected.title} image ${i+1}`}><Image src={`/images/projects/${f}`} alt={`${selected.title} portfolio page ${i+1}`} fill sizes="(max-width: 700px) 50vw, 30vw"/></button>)}</div><p className="source-note">Portfolio pages reproduced from Gayashri's submitted academic work. Referenced runway, brand and film imagery within research projects remains the property of its respective owners.</p></div></article></div>}
 {selected&&lightbox!==null&&<div className="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer"><button className="lightbox-close" onClick={()=>setLightbox(null)} aria-label="Close image"><X/></button><button className="lightbox-prev" onClick={()=>setLightbox((lightbox-1+selected.gallery.length)%selected.gallery.length)} aria-label="Previous image"><ChevronLeft/></button><div className="lightbox-img"><Image src={`/images/projects/${selected.gallery[lightbox]}`} alt={`${selected.title} page ${lightbox+1}`} fill sizes="95vw"/></div><button className="lightbox-next" onClick={()=>setLightbox((lightbox+1)%selected.gallery.length)} aria-label="Next image"><ChevronRight/></button><span className="lightbox-count">{lightbox+1} / {selected.gallery.length}</span></div>}
 </>}
